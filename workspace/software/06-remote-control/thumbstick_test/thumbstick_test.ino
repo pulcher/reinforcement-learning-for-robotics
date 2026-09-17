@@ -24,7 +24,7 @@
 // AP credentials and static IP
 // ---------------------------------------------------------------------------
 static const char* AP_SSID     = "BalanceBot";
-static const char* AP_PASSWORD = "balancebot";
+static const char* AP_PASSWORD = "1234";
 
 static const IPAddress AP_IP      (192, 168,  4,  1);
 static const IPAddress AP_GATEWAY (192, 168,  4,  1);
