@@ -1,6 +1,6 @@
 <!-- Generated using Fusion2Mujoco v1.0.1 -->
 <!-- https://github.com/jgillick/Fusion2Mujoco -->
-<mujoco model="JaredBot v5">
+<mujoco model="JaredBot">
     <compiler angle="radian" />
     <option timestep="0.005" gravity="0 0 -9.81" integrator="implicitfast"/>
     <default>
@@ -20,7 +20,7 @@
         <material name="battery_box_mat" rgba="0.6275 0.6275 0.6275 1.0000" roughness="0.2646" />
         <material name="left_motor_mat" rgba="0.6275 0.6275 0.6275 1.0000" roughness="0.2646" />
         <material name="right_motor_mat" rgba="0.6275 0.6275 0.6275 1.0000" roughness="0.2646" />
-        <material name="left_wheel_mat" rgba="0.0000 1.0000  0.0000 1.0000" roughness="0.2646" />
+        <material name="left_wheel_mat" rgba="0.0000 1.0000 0.0000 1.0000" roughness="0.2646" />
         <material name="right_wheel_mat" rgba="1.0000 0.0000 0.0000 1.0000" roughness="0.2646" />
         <material name="robot_mat" rgba="0.6275 0.6275 0.6275 1.0000" roughness="0.2646" />
         <texture type="2d" name="ground_plane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="200" height="200" />
@@ -31,45 +31,31 @@
         <geom name="floor" size="10 10 0.05" type="plane" contype="1" conaffinity="1" rgba="1 1 1 1" material="ground_plane" />
         <body name="model_root" pos="0.0 0.0 0.0657179" quat="1 0 0 0">
             <freejoint />
-            <body name="right_motor" pos="0.0 0.0 0.0" quat="0.0 0.0 1.0 0.0">
-                <geom mesh="right_motor_visual" name="right_motor_right_motor_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="right_motor_mat" />
-                <inertial mass="0.7668569598401186" pos="0.06288137645152665 1.518713982295315e-15 0.022542529650702803" fullinertia="0.00023078759269471274 0.00031958359620482425 0.000292284137927281 -4.198028128558328e-17 -1.1763478103726018e-06 -9.80079342136694e-18" />
-                <body name="right_wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
-                    <joint 
-                        type="hinge" 
-                        name="right_wheel" 
-                        axis="1.0 0.0 0.0" 
-                        pos="0.1082 0.0 0.031" 
-                        damping="0.001" 
-                        frictionloss="0.001" 
-                    />
-                    <geom mesh="right_wheel_visual" name="right_wheel_right_wheel_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="right_wheel_mat" />
-                    <inertial mass="0.1819934098089926" pos="0.10898909819647759 1.5984233723399321e-13 0.031135919391672925" fullinertia="0.00011032373099565274 5.7547572983805174e-05 5.756693039670651e-05 2.0468006344827036e-16 -2.995339199807559e-08 4.117915511406432e-18" />
+            <body name="left_motor" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+                <geom mesh="left_motor_visual" name="left_motor_left_motor_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="left_motor_mat" />
+                <inertial mass="0.7668569598401186" pos="0.06288137645152665 1.518713982295315e-15 -0.022542529650702803" fullinertia="0.00023078759269471274 0.00031958359620482425 0.000292284137927281 -4.198028128558328e-17 1.1763478103728187e-06 9.845415505172674e-18" />
+                <body name="left_wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+                    <joint type="hinge" name="left_wheel" axis="1.0 0.0 0.0" pos="0.1082 0.0 -0.031" damping="0.001" frictionloss="0.001" />
+                    <geom mesh="left_wheel_visual" name="left_wheel_left_wheel_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="left_wheel_mat" />
+                    <inertial mass="0.18317090980899264" pos="0.10901616765242352 1.5880871292986323e-13 -0.03113216640092299" fullinertia="0.00011034048391740637 5.757728617242653e-05 5.7596244830241186e-05 2.0540168513336348e-16 2.707726360164954e-08 -4.088541670447315e-09" />
                 </body>
+            </body>
+            <body name="robot" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+                <geom mesh="robot_visual" name="robot_robot_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="robot_mat" />
+                <inertial mass="12.100590031298227" pos="-7.339959600340545e-19 5.000379773554237e-15 0.030544609378349036" fullinertia="0.02195301872095598 0.0492751320669445 0.03800633547497197 1.1423253454267808e-17 -1.0706512066103094e-18 -8.177079609568814e-09" />
             </body>
             <body name="battery_box" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
                 <geom mesh="battery_box_visual" name="battery_box_battery_box_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="battery_box_mat" />
                 <inertial mass="0.9137644920000002" pos="-4.883324335362145e-18 0.0 -0.012700000000000001" fullinertia="0.0004889523337875603 0.00032600451928125034 0.0007167028031256906 0.0 1.2047962627548261e-20 8.924416761146858e-20" />
             </body>
-            <body name="left_motor" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
-                <geom mesh="left_motor_visual" name="left_motor_left_motor_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="left_motor_mat" />
-                <inertial mass="0.7668569598401186" pos="0.06288137645152665 1.518713982295315e-15 -0.022542529650702803" fullinertia="0.00023078759269471274 0.00031958359620482425 0.000292284137927281 -4.198028128558328e-17 1.1763478103728187e-06 9.845415505172674e-18" />
-                <body name="left_wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
-                    <joint 
-                        type="hinge" 
-                        name="left_wheel" 
-                        axis="1.0 0.0 0.0" 
-                        pos="0.1082 0.0 -0.031"
-                        damping="0.001" 
-                        frictionloss="0.001" 
-                    />
-                    <geom mesh="left_wheel_visual" name="left_wheel_left_wheel_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="left_wheel_mat" />
-                    <inertial mass="0.1819934098089926" pos="0.10898909819647759 1.5984233723399321e-13 -0.03113591939167286" fullinertia="0.00011032373099565253 5.754757298380474e-05 5.756693039670651e-05 2.0468006344827036e-16 2.995339199796717e-08 -3.7609388409587336e-18" />
+            <body name="right_motor" pos="0.0 0.0 0.0" quat="0.0 0.0 1.0 0.0">
+                <geom mesh="right_motor_visual" name="right_motor_right_motor_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="right_motor_mat" />
+                <inertial mass="0.7668569598401186" pos="0.06288137645152665 1.518713982295315e-15 0.022542529650702803" fullinertia="0.00023078759269471274 0.00031958359620482425 0.000292284137927281 -4.198028128558328e-17 -1.1763478103726018e-06 -9.80079342136694e-18" />
+                <body name="right_wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+                    <joint type="hinge" name="right_wheel" axis="1.0 0.0 0.0" pos="0.1082 0.0 0.031" damping="0.001" frictionloss="0.001" />
+                    <geom mesh="right_wheel_visual" name="right_wheel_right_wheel_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="right_wheel_mat" />
+                    <inertial mass="0.18317090980899264" pos="0.10901616765242352 1.5880871292986323e-13 0.031132166400923037" fullinertia="0.00011034048391740664 5.757728617242653e-05 5.7596244830241186e-05 2.0540168513336348e-16 -2.707726360164954e-08 4.08854167075967e-09" />
                 </body>
-            </body>
-            <body name="robot" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
-                <geom mesh="robot_visual" name="robot_robot_visual_geom" type="mesh" pos="0 0 0" quat="1 0 0 0" material="robot_mat" />
-                <inertial mass="12.098235031298225" pos="-7.341388371133483e-19 5.0015375456194e-15 0.030556502250939203" fullinertia="0.021944193536743522 0.04923614491669871 0.037976140800605296 1.1423253454267808e-17 -1.4260282044181879e-18 3.724834910414534e-15" />
             </body>
         </body>
     </worldbody>
@@ -92,5 +78,4 @@
         <jointvel name="left_wheel_vel" joint="left_wheel"/>
         <jointvel name="right_wheel_vel" joint="right_wheel"/>
     </sensor>
-
 </mujoco>

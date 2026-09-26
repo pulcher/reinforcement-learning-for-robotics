@@ -1,7 +1,7 @@
 import mujoco
 import mujoco.viewer
 
-model = mujoco.MjModel.from_xml_path("../jaredBot/initial/JaredBot v5.xml")
+model = mujoco.MjModel.from_xml_path("../jaredBot/wheel_markers/JaredBot.xml")
 data = mujoco.MjData(model)
 
 with mujoco.viewer.launch_passive(model, data) as viewer:
